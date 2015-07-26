@@ -9,7 +9,7 @@ REDIS_PORT = 6379
 def from_settings(settings):
     if settings.get('REDIS_CONNECTION_POOL_INSTANCE', None):
         ri = load_object(settings.get('REDIS_CONNECTION_POOL_INSTANCE'))
-        ri.getConn()
+        return ri.getConn()
     else:
         import redis
         url = settings.get('REDIS_URL',  REDIS_URL)
